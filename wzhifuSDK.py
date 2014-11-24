@@ -2,7 +2,7 @@
 """
 Created on 2014-11-24
 
-@author: root
+@author: http://blog.csdn.net/yueguanghaidao,yihaibo@longtugame.com
 
  * 微信支付帮助库
  * ====================================================
