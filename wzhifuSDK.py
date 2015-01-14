@@ -94,7 +94,8 @@ class Singleton(object):
                 if not hasattr(cls, "_instance"):
                     impl = cls.configure() if hasattr(cls, "configure") else cls
                     instance = super(Singleton, cls).__new__(impl, *args, **kwargs)
-                    instance.__init__(*args, **kwargs)
+                    if not isinstance(instance, cls):
+                        instance.__init__(*args, **kwargs)
                     cls._instance = instance
         return cls._instance
 
@@ -143,7 +144,7 @@ class CurlClient(object):
             self.curl.setopt(pycurl.SSLKEYTYPE, "PEM")
             self.curl.setopt(pycurl.SSLKEY, WxPayConf_pub.SSLKEY_PATH)
             self.curl.setopt(pycurl.SSLCERTTYPE, "PEM")
-            self.curl.setopt(pycurl.SSLCERT, WxPayConf_pub.SSLKEY_PATH)
+            self.curl.setopt(pycurl.SSLCERT, WxPayConf_pub.SSLCERT_PATH)
         #post提交方式
         if post:
             self.curl.setopt(pycurl.POST, True)
