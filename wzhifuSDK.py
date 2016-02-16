@@ -385,8 +385,7 @@ class OrderQuery_pub(Wxpay_client_pub):
         """生成接口参数xml"""
 
         #检测必填参数
-        if not (any(self.parameters.get(key) is not None
-                    for key in ("out_trade_no", "transaction_id", ))):
+        if all(self.parameters.get(key) is None for key in ("out_trade_no", "transaction_id", )):
             raise ValueError("missing parameter")
 
         self.parameters["appid"] = WxPayConf_pub.APPID  #公众账号ID
