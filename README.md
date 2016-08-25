@@ -6,4 +6,4 @@ wzhifuSDK
     
     
 注意类定义和函数申明和官方php都一样，如果你想试着写demo,可以仿照php demo,基本一致。如果要提供python demo，就需要依赖django或flask等web框架，我是希望这个sdk近可能简单，不依赖任何东西，拿来即用。
-也许https://github.com/Skycrab/weixin-knife更适合你。
+也许https://github.com/Skycrab/weixin-knife 更适合你。
